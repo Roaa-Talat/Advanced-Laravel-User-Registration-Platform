@@ -1,38 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout\master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Registration Form</title>
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
-    @include('header')
+@section('content')
     <div class="big-content">
         <div class="container" style="margin: auto;">
             <h1 class="title">Registration Form</h1>
             <div class="content">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
                 <form action="{{ route('user.register') }}" method="POST" enctype="multipart/form-data" id="registrationForm">
                     @csrf
                     <div class="profile-picture" onclick="document.getElementById('userImage').click()" style="position:relative;">
@@ -65,7 +37,7 @@
                         </div>
                         <div class="input-box">
                             <label for="phoneNumber">Phone Number</label>
-                            <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Enter your phone number" value="{{ old('phoneNumber') }}" required>
+                            <input type="tel" name="phone" id="phoneNumber" placeholder="Enter your phone number" value="{{ old('phoneNumber') }}" required>
                             <p class="d-none phone-error-msg"></p>
                         </div>
                         <div class="input-box">
@@ -89,29 +61,5 @@
                 </form>
             </div>
         </div>
-        @include('footer')
     </div>
-
-    <script src="{{ asset('main.js') }}"></script>
-
-    <script>
-        function previewImage() {
-            const preview = document.getElementById('imagePreview');
-            const fileInput = document.getElementById('userImage');
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function(event) {
-                document.getElementById('chooseImageText').style.display = 'none';
-                preview.style.display = 'block';
-                preview.src = event.target.result;
-            };
-
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-        }
-    </script>
-</body>
-
-</html>
+@endsection

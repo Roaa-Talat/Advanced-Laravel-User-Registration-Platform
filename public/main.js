@@ -245,3 +245,21 @@ document.addEventListener("DOMContentLoaded", function() {
         xhr.send(formData);
     });
 });
+
+
+function previewImage() {
+  const preview = document.getElementById('imagePreview');
+  const fileInput = document.getElementById('userImage');
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function(event) {
+      document.getElementById('chooseImageText').style.display = 'none';
+      preview.style.display = 'block';
+      preview.src = event.target.result;
+  };
+
+  if (file) {
+      reader.readAsDataURL(file);
+  }
+}
