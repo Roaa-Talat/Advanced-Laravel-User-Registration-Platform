@@ -263,3 +263,5 @@ function previewImage() {
       reader.readAsDataURL(file);
   }
 }
+
+

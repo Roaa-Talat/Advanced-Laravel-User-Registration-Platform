@@ -5,6 +5,7 @@
         <div class="container" style="margin: auto;">
             <h1 class="title">Registration Form</h1>
             <div class="content">
+                @include('sweetalert::alert')
                 <form action="{{ route('user.register') }}" method="POST" enctype="multipart/form-data" id="registrationForm">
                     @csrf
                     <div class="profile-picture" onclick="document.getElementById('userImage').click()" style="position:relative;">
@@ -15,11 +16,14 @@
                     <div class="user-details">
                         <div class="input-box">
                             <label for="fullname">Full Name</label>
-                            <input type="text" name="name" id="fullname" placeholder="Enter your name" value="{{ old('fullName') }}" required>
+                            <input type="text" name="name" id="fullname" placeholder="Enter your name" value="{{ old('name') }}" required>
                         </div>
                         <div class="input-box">
                             <label for="username">Username</label>
-                            <input type="text" name="user_name" id="username" placeholder="Enter your username" required>
+                            <input type="text" name="user_name" id="username" placeholder="Enter your username" value="{{ old('user_name') }}" required>
+                            @error('user_name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="input-box">
                             <label for="birthdate">Birthdate</label>
@@ -37,7 +41,7 @@
                         </div>
                         <div class="input-box">
                             <label for="phoneNumber">Phone Number</label>
-                            <input type="tel" name="phone" id="phoneNumber" placeholder="Enter your phone number" value="{{ old('phoneNumber') }}" required>
+                            <input type="tel" name="phone" id="phoneNumber" placeholder="Enter your phone number" value="{{ old('phone') }}" required>
                             <p class="d-none phone-error-msg"></p>
                         </div>
                         <div class="input-box">

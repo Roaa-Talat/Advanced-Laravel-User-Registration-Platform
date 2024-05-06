@@ -23,6 +23,7 @@
     </footer>
 
     <script src="{{ asset('main.js') }}"></script>
+    @include('sweetalert::alert')
 </body>
 
 </html>

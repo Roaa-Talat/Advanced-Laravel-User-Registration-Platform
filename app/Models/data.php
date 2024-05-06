@@ -19,4 +19,16 @@ class data extends Model
         'address',
         'user_image',
     ];
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'password' => 'hashed',
+            'user_image' => 'string',
+        ];
+    }
 }
