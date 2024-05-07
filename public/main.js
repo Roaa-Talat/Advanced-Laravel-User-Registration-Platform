@@ -23,7 +23,7 @@ function validateEmail(email) {
 
   if (email.value === "") {
     email.classList.add("wrong");
-    mailErrorMsg.innerHTML = "Email is required";
+    mailErrorMsg.innerHTML = langStrings.emptyEmail;
     mailErrorMsg.classList.remove("d-none");
     mailErrorMsg.classList.add("error");
     return false;
@@ -31,7 +31,7 @@ function validateEmail(email) {
 
   if (!emailRegex.test(email.value)) {
     email.classList.add("wrong");
-    mailErrorMsg.innerHTML = "Email must be in the format: example@example.com";
+    mailErrorMsg.innerHTML = langStrings.emailCheck;
     mailErrorMsg.classList.remove("d-none");
     mailErrorMsg.classList.add("error");
     return false;
@@ -50,7 +50,7 @@ function validatePhoneNumber(phoneNumber) {
 
   if (phoneNumber.value === "") {
     phoneNumber.classList.add("wrong");
-    phoneNumberErrorMsg.innerHTML = "Phone number is required";
+    phoneNumberErrorMsg.innerHTML = langStrings.emptyPhoneNumber;
     phoneNumberErrorMsg.classList.remove("d-none");
     phoneNumberErrorMsg.classList.add("error");
     return false;
@@ -58,7 +58,7 @@ function validatePhoneNumber(phoneNumber) {
 
   if (!phoneRegex.test(phoneNumber.value)) {
     phoneNumber.classList.add("wrong");
-    phoneNumberErrorMsg.innerHTML = "Phone number must be in the format: 01XXXXXXXXX";
+    phoneNumberErrorMsg.innerHTML = langStrings.phonenumberCheck;
     phoneNumberErrorMsg.classList.remove("d-none");
     phoneNumberErrorMsg.classList.add("error");
     return false;
@@ -76,7 +76,7 @@ function validatePassword(password) {
 
   if (password.value === "") {
     password.classList.add("wrong");
-    passwordErrorMsg.innerHTML = "Password is required";
+    passwordErrorMsg.innerHTML = langStrings.emptyPassword;
     passwordErrorMsg.classList.remove("d-none");
     passwordErrorMsg.classList.add("error");
     return false;
@@ -84,7 +84,7 @@ function validatePassword(password) {
 
   if (!passwordRegex.test(password.value)) {
     password.classList.add("wrong");
-    passwordErrorMsg.innerHTML = "Password must contain at least 8 characters, including letters and numbers";
+    passwordErrorMsg.innerHTML = langStrings.passwordCheck;
     passwordErrorMsg.classList.remove("d-none");
     passwordErrorMsg.classList.add("error");
     return false;
@@ -107,7 +107,7 @@ function checkRepassword() {
     confirmPassword.classList.add("wrong");
     confirmPasswordErrorMsg.classList.remove("d-none");
     confirmPasswordErrorMsg.classList.add("error");
-    confirmPasswordErrorMsg.innerHTML = "Passwords do not match";
+    confirmPasswordErrorMsg.innerHTML = langStrings.confirmpasswordCheck;
     return false;
   }
 }
@@ -116,7 +116,7 @@ function checkRepassword() {
 function validateBirthdate(birthdate) {
   if (birthdate.value === "") {
     birthdate.classList.add("wrong");
-    birthdateErrorMsg.innerHTML = "Birthdate is required";
+    birthdateErrorMsg.innerHTML = langStrings.emptyBirthdate;
     birthdateErrorMsg.classList.remove("d-none");
     birthdateErrorMsg.classList.add("error");
     return false;
@@ -128,7 +128,7 @@ function validateBirthdate(birthdate) {
 
   if (ageDiff < 18) {
     birthdate.classList.add("wrong");
-    birthdateErrorMsg.innerHTML = "You must be at least 18 years old";
+    birthdateErrorMsg.innerHTML = langStrings.birthDateCheck;
     birthdateErrorMsg.classList.remove("d-none");
     birthdateErrorMsg.classList.add("error");
     return false;

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="register-route" content="{{ route('user.register') }}">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Registration Form</title>
+    <title>{{__('strings.Registration Form')}}</title>
     <link rel="stylesheet" href="{{ asset('style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -27,3 +27,16 @@
 </body>
 
 </html>
+<script>
+    var langStrings = {
+        birthDateCheck: "{{ __('strings.BirthDateCheck') }}",
+        emailCheck: "{{ __('strings.EmailCheck')}}",
+        emptyEmail: "{{ __('strings.EmptyEmail')}}",
+        emptyPhoneNumber: "{{ __('strings.EmptyPhoneNumber')}}",
+        phonenumberCheck: "{{ __('strings.PhoneNumberCheck')}}",
+        emptyPassword:"{{ __('strings.EmptyPassword')}}",
+        passwordCheck:"{{ __('strings.PasswordCheck')}}",
+        confirmpasswordCheck:"{{ __('strings.ConfirmPasswordCheck')}}",
+        emptyBirthdate:"{{ __('strings.EmptyBirthDate')}}"
+    };
+</script>
