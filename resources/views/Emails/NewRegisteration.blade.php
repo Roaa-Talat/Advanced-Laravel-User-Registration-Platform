@@ -1,0 +1,1 @@
+<p class="fs-2">A new user <b></b>{{ $username }} is registered to the system !</p>

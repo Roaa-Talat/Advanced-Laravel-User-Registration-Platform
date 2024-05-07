@@ -15,6 +15,8 @@ let passwordErrorMsg = document.querySelector(".password-error-msg");
 let confirmPasswordErrorMsg = document.querySelector(".confirm-password-error-msg");
 let birthdateErrorMsg = document.querySelector(".birthdate-error-msg");
 
+let submit = document.querySelector(".button");
+
 // Function to validate email
 function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -181,6 +183,15 @@ birthdate.addEventListener("input", () => {
 
 birthdate.addEventListener("blur", () => {
   validateBirthdate(birthdate);
+});
+
+// Event listener for form submission
+submit.addEventListener("click", (e) => {
+  if (!validateEmail(email) || !validatePhoneNumber(phoneNumber) || !validatePassword(password) || !checkRepassword() || !validateBirthdate(birthdate)) {
+    // Prevent form submission if any of the fields are invalid
+    e.preventDefault();
+
+  }
 });
 
 // Event listener for showing names on button click
