@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return false;
     }
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "../../Service/api.php", true);
+    xhr.open("POST", "api.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
@@ -221,40 +221,40 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("userImage").addEventListener("change", function() {
-        var formData = new FormData();
-        var userImage = document.getElementById("userImage").files[0];
-        formData.append("userImage", userImage);
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("userImage").addEventListener("change", function () {
+    var formData = new FormData();
+    var userImage = document.getElementById("userImage").files[0];
+    formData.append("userImage", userImage);
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "../../Service/Upload.php", true);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../../Service/Upload.php", true);
 
-        // Set the appropriate headers
-        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    // Set the appropriate headers
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    var contentType = xhr.getResponseHeader("Content-Type");
-                    if (contentType && contentType.indexOf("application/json") !== -1) {
-                        var response = JSON.parse(xhr.responseText);
-                        if (response.status === 'success') {
-                            alert(response.message);
-                        } else {
-                            alert(response.message);
-                        }
-                    } else {
-                        // Handle image response here
-                        console.log("Image uploaded successfully!");
-                    }
-                } else {
-                    console.log('Error occurred during the upload. Please try again.');
-                }
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          var contentType = xhr.getResponseHeader("Content-Type");
+          if (contentType && contentType.indexOf("application/json") !== -1) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.status === 'success') {
+              alert(response.message);
+            } else {
+              alert(response.message);
             }
-        };
-        xhr.send(formData);
-    });
+          } else {
+            // Handle image response here
+            console.log("Image uploaded successfully!");
+          }
+        } else {
+          console.log('Error occurred during the upload. Please try again.');
+        }
+      }
+    };
+    xhr.send(formData);
+  });
 });
 
 
@@ -264,14 +264,14 @@ function previewImage() {
   const file = fileInput.files[0];
   const reader = new FileReader();
 
-  reader.onload = function(event) {
-      document.getElementById('chooseImageText').style.display = 'none';
-      preview.style.display = 'block';
-      preview.src = event.target.result;
+  reader.onload = function (event) {
+    document.getElementById('chooseImageText').style.display = 'none';
+    preview.style.display = 'block';
+    preview.src = event.target.result;
   };
 
   if (file) {
-      reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
   }
 }
 
