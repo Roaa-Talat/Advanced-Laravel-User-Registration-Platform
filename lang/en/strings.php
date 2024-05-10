@@ -37,6 +37,12 @@ return[
     "ConfirmPasswordCheck"=>"Passwords do not match",
     "EmptyBirthDate"=>"Birthdate is required",
     "Arabic"=>"Arabic",
-    "English"=>"English"
+    "English"=>"English",
+    "TakenUserName"=>"The username is already taken.",
+    "HeaderMessageTakenUser"=>"Username Not Unique",
+    "BodyMessageTakenUser"=>"The username is already taken. Please choose a different one.",
+    "SuccessMessage"=>"User registered successfully!",
+    "HeaderSuccessMessage"=>"Registered successfully",
+    "WelcomeMessage"=>"Welcome to Our Website"
 
 ];

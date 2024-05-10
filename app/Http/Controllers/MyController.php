@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\NewRegisteration;
 use Illuminate\Http\Request;
 use App\Models\data;
-use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\Mail;
 
 class MyController extends Controller
 {
@@ -39,18 +37,18 @@ class MyController extends Controller
         // Check if the username is unique
         $isUnique = data::where('user_name', $validatedData['user_name'])->doesntExist();
         if (!$isUnique) {
-            Alert::error("Username Not Unique","The username is already taken. Please choose a different one.");
-            return redirect()->back()->withErrors(['user_name' => 'The username is already taken.'])->withInput();
+            Alert::error(__('strings.HeaderMessageTakenUser'),__('strings.BodyMessageTakenUser'));
+            return redirect()->back()->withErrors(['user_name' => __('strings.TakenUserName')])->withInput();
         }
 
         // Create a new user with the validated data
         $user = data::create($validatedData);
-        Alert::success("Registered successfully","Welcome to Our Website");
+        Alert::success(__('strings.HeaderSuccessMessage'),__('strings.WelcomeMessage'));
         $user->save();
         // Send an email to the user
         \Illuminate\Support\Facades\Mail::to($user->email)->send(new NewRegisteration($user));
         // If the user was successfully created, redirect with success message
-        return redirect()->back()->with('success', 'User registered successfully!');
+        return redirect()->back()->with('success', __('strings.SuccessMessage'));
 
     }
 }

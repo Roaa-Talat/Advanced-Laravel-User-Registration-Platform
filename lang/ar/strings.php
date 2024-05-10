@@ -37,5 +37,11 @@ return[
     "ConfirmPasswordCheck"=>"كلمة المرور غير متطابقة",
     "EmptyBirthDate"=>"يجب ادخال تاريخ الميلاد",
     "Arabic"=>"العربية",
-    "English"=>"الانجليزية"
+    "English"=>"الانجليزية",
+    "TakenUserName"=>"اسم المستخدم تم ادخاله من قبل",
+    "HeaderMessageTakenUser"=>"اسم المستخدم ليس مميز",
+    "BodyMessageTakenUser"=>"اسم المستخدم تم ادخاله من قبل, من فضلك ادخل اسم مستخدم مختلف",
+    "SuccessMessage"=>"تم تسجيل المستخدم بنجاح!",
+    "HeaderSuccessMessage"=>"تم التسجيل بنجاح",
+    "WelcomeMessage"=>"مرحبًا بك في موقعنا"
 ];
