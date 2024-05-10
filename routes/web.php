@@ -7,7 +7,8 @@ use App\Http\Controllers\MyController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home'); // Define the home route and name it 'home'
+
 
 Route::get('{lang}', [LocalController::class, 'setLocale']);
 
