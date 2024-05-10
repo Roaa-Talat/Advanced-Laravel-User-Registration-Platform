@@ -27,6 +27,14 @@
 </body>
 
 </html>
+
+<script>
+    document.getElementById('languages').addEventListener('change', function() {
+        var selectedLang = this.value;
+        window.location.href = '/' + selectedLang; // Redirect to /en or /ar based on selection
+    });
+</script>
+
 <script>
     var langStrings = {
         birthDateCheck: "{{ __('strings.BirthDateCheck') }}",

@@ -487,3 +487,19 @@ footer {
     color: red;
     font-size: 14px;
 }
+
+.header-div {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    position: relative;
+
+}
+
+select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    outline: none;
+}

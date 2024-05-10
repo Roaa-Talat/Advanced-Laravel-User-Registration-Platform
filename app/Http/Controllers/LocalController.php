@@ -8,11 +8,17 @@ use Illuminate\Support\Facades\App;
 
 class LocalController extends Controller
 {
+    // public function setLocale($lang)
+    // {
+    //     App::setLocale($lang);
+
+    //     return redirect()->route('home');
+    // }
 
     public function setLocale($lang){
         Session::put('lang',$lang);
         return redirect('/');
     }
-    //
+    
 }
 

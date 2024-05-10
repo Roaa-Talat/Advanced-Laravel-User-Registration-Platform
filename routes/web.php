@@ -9,7 +9,6 @@ Route::get('/', function () {
     return view('index');
 })->name('home'); // Define the home route and name it 'home'
 
-
-Route::get('{lang}', [LocalController::class, 'setLocale']);
+Route::get('/{lang}', [LocalController::class, 'setLocale'])->name('setLocale');
 
 Route::post('/register', [MyController::class, 'register'])->name('user.register');

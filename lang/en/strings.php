@@ -35,6 +35,8 @@ return[
     "EmptyPassword"=>"Password is required",
     "PasswordCheck"=>"Password must contain at least 8 characters, including letters and numbers",
     "ConfirmPasswordCheck"=>"Passwords do not match",
-    "EmptyBirthDate"=>"Birthdate is required"
+    "EmptyBirthDate"=>"Birthdate is required",
+    "Arabic"=>"Arabic",
+    "English"=>"English"
 
 ];
