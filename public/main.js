@@ -226,9 +226,13 @@ document.addEventListener("DOMContentLoaded", function () {
     var formData = new FormData();
     var userImage = document.getElementById("userImage").files[0];
     formData.append("userImage", userImage);
-
+    var acceptedImageTypes = ['image/jpeg', 'image/png'];
+        if (!acceptedImageTypes.includes(userImage.type)) {
+          alert('Only JPEG and PNG images are accepted.');
+          return;
+        }
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "../../Service/Upload.php", true);
+    xhr.open("POST", "Upload.php", true);
 
     // Set the appropriate headers
     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
