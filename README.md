@@ -1,6 +1,6 @@
 # Laravel Registration Webpage
 
-![Demo Video](Demo.gif)
+https://github.com/user-attachments/assets/16393438-5723-4a87-b8f3-1c7ed6ba854e
 
 
 ## Overview
